@@ -1,10 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import ClickCounter from './components/ClickCounter/ClickCounter';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './store/reducer';
+
+const reduxStore = createStore(reducers)
 
 function App() {
   return (
-    <ClickCounter/>
+    <Provider store={reduxStore}>
+     <p>
+       Guessed Words
+     </p>
+    </Provider>
   );
 }
 
