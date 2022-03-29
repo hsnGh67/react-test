@@ -1,6 +1,7 @@
 import Enzyme, { shallow } from "enzyme"
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17"
 import ClickCounter from "./ClickCounter"
+import { findByTestAttr } from "../../test/utils"
 
 Enzyme.configure({adapter : new Adapter()})
 
@@ -8,11 +9,6 @@ const setup = (props={} , state=null)=>{
     const wrapper = shallow(<ClickCounter {...props}/>)
     if(state) wrapper.setState(state)
     return wrapper
-}
-
-const findByTestAttr = (wrapper , attr) =>{
-    const element = wrapper.find(`[data-test="${attr}"]`)
-    return element
 }
 
 test("Render Container without error" , ()=>{
