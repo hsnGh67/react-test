@@ -1,8 +1,8 @@
 import { types } from "../types";
 
-const initialState = {
+export const initialState = {
     guessedWords : [],
-    secretWord : "",
+    secretWord : null,
     success : false
 }
 
@@ -14,6 +14,8 @@ export const guessedReducer = (state=initialState , action) =>{
             return {...state , secretWord : action.word}
         case types.SUBMIT_SUCCESS_TRUE:
             return {...state , success : true}
+        case types.SUBMIT_RESET:
+            return {...initialState}
         default:
             return state
     }

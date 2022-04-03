@@ -1,12 +1,8 @@
 import { types } from "../types"
 import { guessedReducer} from "./guessedWords.reducer"
+import { initialState } from "../reducer/guessedWords.reducer"
 
 describe("check returned state of reducer" , ()=>{
-    const initialState = {
-        guessedWords : [],
-        secretWord : "",
-        success : false
-    }
 
     test("retutn initial state when submit no action" , ()=>{
         const newState = guessedReducer(undefined , {})
