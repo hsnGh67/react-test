@@ -1,4 +1,4 @@
-import GuessedWord from "./GuessedWord"
+import GuessedWord from "./GuessedWord.class"
 import moxios from "moxios"
 import { storeFactory } from "../../helpers"
 import { submitWord , resetReducer , getSecretWord} from "../../store/action/gussedWords.action"
@@ -79,7 +79,6 @@ describe("Integration test actoin creator" , ()=>{
             return store.dispatch(getSecretWord())
             .then(()=>{
                 const newState = store.getState()
-                console.warn("newState" , newState)
                 expect(newState.guessedReducer.secretWord).toBe("party")
             })
         })
