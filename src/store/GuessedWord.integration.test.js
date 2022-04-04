@@ -1,7 +1,6 @@
-import GuessedWord from "./GuessedWord.class"
 import moxios from "moxios"
-import { storeFactory } from "../../helpers"
-import { submitWord , resetReducer , getSecretWord} from "../../store/action/gussedWords.action"
+import { storeFactory } from "../helpers"
+import { submitWord , resetReducer , getSecretWord} from "./action/gussedWords.action"
 
 describe("Integration test actoin creator" , ()=>{
     test("test state returned by reducer after an incorrect word has guessed and guessed words array is empty" , ()=>{

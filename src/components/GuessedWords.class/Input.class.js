@@ -17,7 +17,7 @@ export class UnconnectedInput extends Component{
     render(){
         return(
             <form 
-                className="form-inline p-5"
+                className="form-inline mt-5"
             >
                 <input
                     placeholder="guess a word"
