@@ -63,7 +63,7 @@ describe("Integration test actoin creator" , ()=>{
             moxios.uninstall()
         })
 
-        test("get secret word correctly" , ()=>{
+        test("get secret word correctly" , async()=>{
             const store = storeFactory()
              moxios.wait(()=>{
                 const request = moxios.requests.mostRecent()
@@ -75,11 +75,10 @@ describe("Integration test actoin creator" , ()=>{
                 })
             })
                
-            return store.dispatch(getSecretWord())
-            .then(()=>{
-                const newState = store.getState()
-                expect(newState.guessedReducer.secretWord).toBe("party")
-            })
+            await store.dispatch(getSecretWord())
+            const newState = store.getState()
+            expect(newState.guessedReducer.secretWord).toBe("party")
+           
         })
     })
 })
