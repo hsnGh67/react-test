@@ -1,6 +1,10 @@
 import React from "react";
+import langHelper from "../../language"
+import languageContext from "../../contexts/languageContext";
 
+const { getStringByLanguage , languageStrings } = langHelper
 const Input = ()=>{
+    const lang = React.useContext(languageContext)
     return(
         <form className="form-inline m-5">
             <input
@@ -8,7 +12,9 @@ const Input = ()=>{
                 className="me-2"
             />
             <button data-test="component-submit">
-                Submit
+                {
+                    getStringByLanguage(lang , "submit" , languageStrings)
+                }
             </button>
         </form>
     )
