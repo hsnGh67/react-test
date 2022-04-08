@@ -4,7 +4,8 @@ import languageContext from "../../contexts/languageContext";
 
 const { getStringByLanguage , languageStrings } = langHelper
 const Input = ()=>{
-    const lang = React.useContext(languageContext)
+    const [lang] = languageContext.useLanguage()
+    console.warn("lang" , lang)
     return(
         <form className="form-inline m-5">
             <input

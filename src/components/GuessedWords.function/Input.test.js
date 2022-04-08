@@ -10,9 +10,9 @@ const { getStringByLanguage , languageStrings } = langHelper
 
 const setup=(lang="en" , secretWord="party")=>{
     return mount(
-        <languageContext.Provider value={lang}>
+        <languageContext.LanguageProvider value={[lang , jest.fn()]}>
             <Input/>
-        </languageContext.Provider>
+        </languageContext.LanguageProvider>
     )
 }
 
@@ -33,16 +33,15 @@ describe("render tests" , ()=>{
 })
 
 describe("test language" , ()=>{
-    let wrapper
 
     test("render submit text in english when language is En" , ()=>{
-        wrapper = setup()
+        const wrapper = setup()
         const submitBtn = findByTestAttr(wrapper , "component-submit")
         expect(submitBtn.text()).toBe(getStringByLanguage("en" , "submit" , languageStrings))
     })
 
-    test("render submit text in english when language is En" , ()=>{
-        wrapper = setup("emoji")
+    test("render submit text in emoji when language is Emoji" , ()=>{
+        const wrapper = setup("emoji")
         const submitBtn = findByTestAttr(wrapper , "component-submit")
         expect(submitBtn.text()).toBe(getStringByLanguage("emoji" , "submit" , languageStrings))
     })

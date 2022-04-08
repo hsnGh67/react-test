@@ -4,7 +4,7 @@ import languageContext from "../../contexts/languageContext";
 
 const { languageStrings , getStringByLanguage } = languageHelper
 const GuessedWords = ()=>{
-    const lang = React.useContext(languageContext)
+    const [lang] = languageContext.useLanguage()
     return(
         <div data-test="component-guessedWord">
             <h1 data-test="component-header">

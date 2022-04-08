@@ -7,11 +7,12 @@ import languageHelper from "../../language"
 
 const { GuessedWords } = GuessedWordsComponent
 const { languageStrings , getStringByLanguage } = languageHelper
+
 const setup = (lang="en")=>{
     return mount(
-        <languageContext.Provider value={lang}>
+        <languageContext.LanguageProvider value={[lang]}>
             <GuessedWords/>
-        </languageContext.Provider>
+        </languageContext.LanguageProvider>
     )
 }
 describe("render tests" , ()=>{
