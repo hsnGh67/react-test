@@ -15,22 +15,19 @@ const setup = (lang="en")=>{
         </languageContext.LanguageProvider>
     )
 }
-describe("render tests" , ()=>{
-    test("render correctly" , ()=>{
-
+describe("mount tests" , ()=>{
+    describe("language tests" , ()=>{
+        test("header text be correct in english" , ()=>{
+            const wrapper = setup("en")
+            const header = findByTestAttr(wrapper , "component-header")
+            expect(header.text()).toBe(getStringByLanguage("en" , "guessedWords" , languageStrings))
+        })
+    
+        test("header text be correct in emoji" , ()=>{
+            const wrapper = setup("emoji")
+            const header = findByTestAttr(wrapper , "component-header")
+            expect(header.text()).toBe(getStringByLanguage("emoji" , "guessedWords" , languageStrings))
+        })
     })
 })
 
-describe("language tests" , ()=>{
-    test("header text be correct in english" , ()=>{
-        const wrapper = setup("en")
-        const header = findByTestAttr(wrapper , "component-header")
-        expect(header.text()).toBe(getStringByLanguage("en" , "guessedWords" , languageStrings))
-    })
-
-    test("header text be correct in emoji" , ()=>{
-        const wrapper = setup("emoji")
-        const header = findByTestAttr(wrapper , "component-header")
-        expect(header.text()).toBe(getStringByLanguage("emoji" , "guessedWords" , languageStrings))
-    })
-})
